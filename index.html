@@ -1,3 +1,4 @@
+
 <!DOCTYPE html>
 <html lang="pt-BR">
 <head>
@@ -7,11 +8,13 @@
   <style>
     body {
       margin: 0;
-      font-family: 'Arial', sans-serif;
-      background-color: #0e1e2d;
-      color: white;
-      text-align: center;
-      padding: 30px;
+      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+      background: linear-gradient(to right, #0f2027, #203a43, #2c5364);
+      color: #ffffff;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      padding: 40px 20px;
     }
 
     header {
@@ -23,55 +26,82 @@
       justify-content: center;
       align-items: center;
       gap: 12px;
-      font-size: 24px;
+      font-size: 28px;
       font-weight: bold;
       color: #facc15;
     }
 
     .logo img {
-      height: 40px;
+      height: 48px;
+    }
+
+    .card {
+      background-color: #1e293b;
+      padding: 30px;
+      border-radius: 15px;
+      box-shadow: 0 8px 20px rgba(0, 0, 0, 0.3);
+      max-width: 400px;
+      width: 100%;
     }
 
     h2 {
-      color: white;
-      margin-bottom: 10px;
+      color: #ffffff;
+      margin-bottom: 20px;
     }
 
     input {
-      padding: 10px;
-      font-size: 18px;
-      width: 200px;
+      padding: 12px;
+      font-size: 16px;
+      width: 100%;
+      margin-bottom: 20px;
+      border-radius: 8px;
+      border: none;
+      outline: none;
     }
 
     button {
-      padding: 10px 20px;
+      padding: 12px;
+      width: 100%;
       font-size: 18px;
       background-color: #3b82f6;
       border: none;
       color: white;
+      border-radius: 8px;
       cursor: pointer;
+      transition: background-color 0.3s ease;
+    }
+
+    button:hover {
+      background-color: #2563eb;
     }
 
     .result {
-      margin-top: 20px;
-      font-size: 20px;
+      margin-top: 25px;
+      font-size: 18px;
       color: #facc15;
+      text-align: left;
     }
 
     .contato {
-      margin-top: 60px;
+      margin-top: 50px;
       font-size: 18px;
+      text-align: center;
     }
 
     .zap {
-      margin-top: 20px;
+      margin-top: 15px;
       background-color: #25d366;
       color: white;
-      padding: 15px 25px;
+      padding: 12px 25px;
       text-decoration: none;
       font-size: 18px;
-      border-radius: 8px;
+      border-radius: 10px;
       display: inline-block;
+      transition: background-color 0.3s ease;
+    }
+
+    .zap:hover {
+      background-color: #1ebe5d;
     }
 
     .zap-float {
@@ -86,6 +116,7 @@
       justify-content: center;
       align-items: center;
       z-index: 1000;
+      box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3);
     }
 
     .zap-float img {
@@ -102,12 +133,13 @@
     </div>
   </header>
 
-  <h2>Transforme seu limite em dinheiro em 10 minutos!</h2>
-  <p>① Digite o valor desejado e clique em ‘Simular’:</p>
-  <input type="number" id="valor" placeholder="1000" />
-  <button onclick="simular()">Simular</button>
-
-  <div class="result" id="resultado"></div>
+  <div class="card">
+    <h2>Transforme seu limite em dinheiro em 10 minutos!</h2>
+    <p>Digite o valor desejado:</p>
+    <input type="number" id="valor" placeholder="1000" />
+    <button onclick="simular()">Simular</button>
+    <div class="result" id="resultado"></div>
+  </div>
 
   <div class="contato">
     <h2>Fale Conosco</h2>
@@ -133,12 +165,11 @@
       var final20 = valor - desconto20;
 
       document.getElementById("resultado").innerHTML = `
-        <p>Valor inserido: R$ ${valor.toFixed(2).replace(".", ",")}</p>
-        <p><strong>Com 10% de desconto:</strong></p>
-        <p>Desconto: R$ ${desconto10.toFixed(2).replace(".", ",")} → Você receberá: R$ ${final10.toFixed(2).replace(".", ",")}</p>
-        <br>
-        <p><strong>Com 20% de desconto:</strong></p>
-        <p>Desconto: R$ ${desconto20.toFixed(2).replace(".", ",")} → Você receberá: R$ ${final20.toFixed(2).replace(".", ",")}</p>
+        <p><strong>Valor inserido:</strong> R$ ${valor.toFixed(2).replace(".", ",")}</p>
+        <p><strong>Com 10% de desconto:</strong><br>
+        Desconto: R$ ${desconto10.toFixed(2).replace(".", ",")} → Você receberá: R$ ${final10.toFixed(2).replace(".", ",")}</p>
+        <p><strong>Com 20% de desconto:</strong><br>
+        Desconto: R$ ${desconto20.toFixed(2).replace(".", ",")} → Você receberá: R$ ${final20.toFixed(2).replace(".", ",")}</p>
       `;
     }
   </script>
